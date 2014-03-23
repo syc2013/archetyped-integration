@@ -1,9 +1,15 @@
 package edu.zju.bme.archetypedintegration;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +29,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import se.acode.openehr.parser.ADLParser;
 import edu.zju.bme.geo.soft.GplParse;
+import edu.zju.bme.geo.soft.GseParse;
+import edu.zju.bme.geo.soft.GsmParse;
 import edu.zju.bme.hibernarm.service.AQLExecute;
 
 /**
@@ -32,6 +40,17 @@ import edu.zju.bme.hibernarm.service.AQLExecute;
 public class App {
 
 	private static Logger logger = Logger.getLogger(App.class.getName());
+	protected static Map<String, String> archetypes = new LinkedHashMap<String, String>();
+	protected static String archetypeString = "";
+	protected Map<String, String> dataMap = new HashMap<String, String>();
+
+	public void setDataMap(Map<String, String> m) {
+		dataMap = m;
+	}
+
+	public Map<String, String> getDataMap() {
+		return dataMap;
+	}
 
 	public static void main(String[] args) throws InterruptedException {
 
@@ -40,18 +59,32 @@ public class App {
 			ApplicationContext context = new ClassPathXmlApplicationContext(
 					"/beans.xml", App.class);
 			AQLExecute client = (AQLExecute) context.getBean("wsclient");
-			
+			File oldFile = new File("H:/GSM");
+			File newFile = new File("H:/MSG");
+			File map;
+
 			while (true) {
-				String dadl = generateDADL();
-				List<String> dadls = new ArrayList<String>();
-				dadls.add(dadl);
-				client.insert(dadls);
+				File[] fArray = oldFile.listFiles();
+				if (fArray.length != 0) {
+					for (File file : fArray) {
+						if (file.getName().startsWith("GSM")) {
+							map = new File("src/main/resources/gsm.xml");
+							String dadl = generateDADL(map, file,
+									App.getArchetypeString("GSM"));
+							List<String> dadls = new ArrayList<String>();
+							dadls.add(dadl);
+							client.insert(dadls);
+							file.renameTo(new File(newFile, file.getName()));
+						}
+					}
+				} else {
+					break;
+				}
 				Thread.sleep(5000);
 			}
 		} catch (Exception e) {
 			logger.error(e);
 		}
-
 	}
 
 	protected static Map<String, String> parseXml(File f)
@@ -70,10 +103,52 @@ public class App {
 		return mp;
 	}
 
-	protected String generateDADL(File mappingFile, File dataFile,
+	protected static String getArchetypeString(String dataType)
+			throws IOException {
+		archetypes
+				.put("openEHR-EHR-OBSERVATION.gpl.v1",
+						readLines("F:/Create Database/document/knowledge/ZJU/archetype/omics/openEHR-EHR-OBSERVATION.gpl.v1.adl"));
+		archetypes
+				.put("openEHR-EHR-OBSERVATION.gse.v1",
+						readLines("../document/knowledge/ZJU/archetype/omics/openEHR-EHR-OBSERVATION.gse.v1.adl"));
+		archetypes
+				.put("openEHR-EHR-OBSERVATION.gsm.v1",
+						readLines("../document/knowledge/ZJU/archetype/omics/openEHR-EHR-OBSERVATION.gsm.v1.adl"));
+		switch (dataType) {
+		case "GPL":
+			return archetypeString = archetypes
+					.get("openEHR-EHR-OBSERVATION.gpl.v1");
+		case "GSE":
+			return archetypeString = archetypes
+					.get("openEHR-EHR-OBSERVATION.gse.v1");
+		case "GSM":
+			return archetypeString = archetypes
+					.get("openEHR-EHR-OBSERVATION.gsm.v1");
+		default:
+			return null;
+		}
+	}
+
+	protected static String generateDADL(File mappingFile, File dataFile,
 			String archetypeString) throws Exception {
-		GplParse.parseFile(dataFile);
-		Map<String, String> m = GplParse.getM();
+		App app = new App();
+
+		if (mappingFile.getName().startsWith("gpl")) {
+			GplParse gpl = new GplParse();
+			gpl.parseFile(dataFile);
+			app.setDataMap(gpl.getM());
+		}
+		if (mappingFile.getName().startsWith("gse")) {
+			GseParse gse = new GseParse();
+			gse.parseFile(dataFile);
+			app.setDataMap(gse.getM());
+		}
+		if (mappingFile.getName().startsWith("gsm")) {
+			GsmParse gsm = new GsmParse();
+			gsm.parseFile(dataFile);
+			app.setDataMap(gsm.getM());
+		}
+		Map<String, String> m = app.getDataMap();
 		Map<String, String> mp = parseXml(mappingFile);
 		Map<String, Object> hm = new HashMap<String, Object>();
 		for (String s : m.keySet()) {
@@ -85,6 +160,7 @@ public class App {
 			}
 		}
 
+		System.out.print(hm.size());
 		String dadl = "";
 		DADLBinding binding = new DADLBinding();
 		SkeletonGenerator generator = SkeletonGenerator.getInstance();
@@ -95,11 +171,26 @@ public class App {
 
 		if (result instanceof Locatable) {
 			Locatable loc = (Locatable) result;
-			ReflectHelper.setArchetypeValues(loc, hm, null);
+			ReflectHelper.setArchetypeValues(loc, hm, archetype);
 			dadl = binding.toDADLString(loc);
 		}
 
 		return dadl;
 	}
 
+	protected static String readLines(String name) throws IOException {
+		StringBuilder result = new StringBuilder();
+		File file = new File(name);
+		InputStream is = new FileInputStream(file);
+		BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+
+		String line = reader.readLine();
+		while (line != null) {
+			result.append(line);
+			result.append("\n");
+			line = reader.readLine();
+		}
+		reader.close();
+		return result.toString();
+	}
 }
