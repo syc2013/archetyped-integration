@@ -1,132 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <properties>
 	<property>
-		<id>Sample_anchor</id>
+		<id>anchor</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0005]/value/value</value></property>
 	<property>
-		<id>Sample_biomaterial_provider_ch</id>
+		<id>biomaterial_provider_ch</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0006]/value/value</value></property>
 	<property>
-		<id>Sample_channel_count</id>
+		<id>channel_count</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0007]/value/value</value></property>
 	<property>
-		<id>Sample_characteristics_ch</id>
+		<id>characteristics_ch</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0008]/value/value</value></property>
 	<property>
-		<id>Sample_contact_address</id>
+		<id>contact_address</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0009]/value/value</value></property>
 	<property>
-		<id>Sample_contact_city</id>
+		<id>contact_city</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0010]/value/value</value></property>
 	<property>
-		<id>Sample_contact_country</id>
+		<id>contact_country</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0011]/value/value</value></property>
 	<property>
-		<id>Sample_contact_department</id>
+		<id>contact_department</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0012]/value/value</value></property>
 	<property>
-		<id>Sample_contact_email</id>
+		<id>contact_email</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0013]/value/value</value></property>
 	<property>
-		<id>Sample_contact_fax</id>
+		<id>contact_fax</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0014]/value/value</value></property>
 	<property>
-		<id>Sample_contact_institute</id>
+		<id>contact_institute</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0015]/value/value</value></property>
 	<property>
-		<id>Sample_contact_laboratory</id>
+		<id>contact_laboratory</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0016]/value/value</value></property>
 	<property>
-		<id>Sample_contact_name</id>
+		<id>contact_name</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0017]/value/value</value></property>
 	<property>
-		<id>Sample_contact_phone</id>
+		<id>contact_phone</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0018]/value/value</value></property>
 	<property>
-		<id>Sample_contact_state</id>
+		<id>contact_state</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0019]/value/value</value></property>
 	<property>
-		<id>Sample_contact_web_link</id>
+		<id>contact_web_link</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0020]/value/value</value></property>
 	<property>
-		<id>Sample_contact_zip/postal_code</id>
+		<id>contact_zip_or_postal_code</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0021]/value/value</value></property>
 	<property>
-		<id>Sample_data_processing</id>
+		<id>data_processing</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0023]/value/value</value></property>
 	<property>
-		<id>Sample_data_row_count</id>
+		<id>data_row_count</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0024]/value/value</value></property>
 	<property>
-		<id>Sample_description</id>
+		<id>description</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0025]/value/value</value></property>
 	<property>
-		<id>Sample_extract_protocol_ch</id>
+		<id>extract_protocol_ch</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0026]/value/value</value></property>
 	<property>
-		<id>Sample_geo_accession</id>
+		<id>geo_accession</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0027]/value/value</value></property>
 	<property>
-		<id>Sample_growth_protocol_ch</id>
+		<id>growth_protocol_ch</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0028]/value/value</value></property>
 	<property>
-		<id>Sample_hyb_protocol</id>
+		<id>hyb_protocol</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0029]/value/value</value></property>
 	<property>
-		<id>Sample_label_ch</id>
+		<id>label_ch</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0030]/value/value</value></property>
 	<property>
-		<id>Sample_label_protocol_ch</id>
+		<id>label_protocol_ch</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0031]/value/value</value></property>
 	<property>
-		<id>Sample_last_update_date</id>
+		<id>last_update_date</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0032]/value/value</value></property>
 	<property>
-		<id>Sample_molecule_ch</id>
+		<id>molecule_ch</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0033]/value/value</value></property>
 	<property>
-		<id>Sample_organism_ch</id>
+		<id>organism_ch</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0034]/value/value</value></property>
 	<property>
-		<id>Sample_platform_id</id>
+		<id>platform_id</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0035]/value/value</value></property>
 	<property>
-		<id>Sample_scan_protocol</id>
+		<id>scan_protocol</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0036]/value/value</value></property>
 	<property>
-		<id>Sample_series_id</id>
+		<id>series_id</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0037]/value/value</value></property>
 	<property>
-		<id>Sample_source_name_ch</id>
+		<id>source_name_ch</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0038]/value/value</value></property>
 	<property>
-		<id>Sample_status</id>
+		<id>status</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0039]/value/value</value></property>
 	<property>
-		<id>Sample_submission_date</id>
+		<id>submission_date</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0040]/value/value</value></property>
 	<property>
-		<id>Sample_supplementary_file</id>
+		<id>supplementary_file</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0041]/value/value</value></property>
 	<property>
-		<id>Sample_table</id>
+		<id>table</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0042]/value/value</value></property>
 	<property>
-		<id>Sample_tag_count</id>
+		<id>tag_count</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0045]/value/value</value></property>
 	<property>
-		<id>Sample_tag_length</id>
+		<id>tag_length</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0046]/value/value</value></property>
 	<property>
-		<id>Sample_taxid_ch</id>
+		<id>taxid_ch</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0047]/value/value</value></property>
 	<property>
-		<id>Sample_title</id>
+		<id>title</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0048]/value/value</value></property>
 	<property>
-		<id>Sample_treatment_protocol_ch</id>
+		<id>treatment_protocol_ch</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0049]/value/value</value>
 	</property>
 	<property>
-		<id>Sample_type</id>
+		<id>type</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0050]/value/value</value></property></properties>

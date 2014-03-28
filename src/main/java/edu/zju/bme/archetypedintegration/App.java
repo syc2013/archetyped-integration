@@ -28,9 +28,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import se.acode.openehr.parser.ADLParser;
-import edu.zju.bme.geo.soft.GplParse;
-import edu.zju.bme.geo.soft.GseParse;
-import edu.zju.bme.geo.soft.GsmParse;
+import edu.zju.bme.geo.soft.GEOParse;
+import edu.zju.bme.geo.soft.Platform;
+import edu.zju.bme.geo.soft.Sample;
+import edu.zju.bme.geo.soft.Series;
 import edu.zju.bme.hibernarm.service.AQLExecute;
 
 /**
@@ -42,14 +43,14 @@ public class App {
 	private static Logger logger = Logger.getLogger(App.class.getName());
 	protected static Map<String, String> archetypes = new LinkedHashMap<String, String>();
 	protected static String archetypeString = "";
-	protected Map<String, String> dataMap = new HashMap<String, String>();
+	protected File mapFile;
 
-	public void setDataMap(Map<String, String> m) {
-		dataMap = m;
+	public void setMapFlie(File m) {
+		mapFile = m;
 	}
 
-	public Map<String, String> getDataMap() {
-		return dataMap;
+	public File getMapFlie() {
+		return mapFile;
 	}
 
 	public static void main(String[] args) throws InterruptedException {
@@ -59,23 +60,58 @@ public class App {
 			ApplicationContext context = new ClassPathXmlApplicationContext(
 					"/beans.xml", App.class);
 			AQLExecute client = (AQLExecute) context.getBean("wsclient");
-			File oldFile = new File("H:/GSM");
-			File newFile = new File("H:/MSG");
-			File map;
-
+			File oldFile = new File("H:/GEO");
+			File newFile = new File("H:/OEG");
+			App app = new App();
 			while (true) {
 				File[] fArray = oldFile.listFiles();
 				if (fArray.length != 0) {
 					for (File file : fArray) {
-						if (file.getName().startsWith("GSM")) {
-							map = new File("src/main/resources/gsm.xml");
-							String dadl = generateDADL(map, file,
-									App.getArchetypeString("GSM"));
-							List<String> dadls = new ArrayList<String>();
-							dadls.add(dadl);
-							client.insert(dadls);
-							file.renameTo(new File(newFile, file.getName()));
+						GEOParse gp = new GEOParse();
+						gp.parseFile(file);
+						if(gp.getMapPlatForm()!=null){
+							for (Platform plat : gp.getMapPlatForm().keySet()) {
+								app.setMapFlie(new File(
+										"src/main/resources/gpl.xml"));
+								String dadl = generateDADL(app.getMapFlie(),
+										plat.getGpl(), App.getArchetypeString(gp
+												.getMapPlatForm().get(plat)));
+								List<String> dadls = new ArrayList<String>();
+								dadls.add(dadl);
+								client.insert(dadls);
+								dadls.clear();
+							}
 						}
+						
+						if(gp.getMapSeries()!=null){
+							for (Series ser : gp.getMapSeries().keySet()) {
+								app.setMapFlie(new File(
+										"src/main/resources/gse.xml"));
+								String dadl = generateDADL(app.getMapFlie(),
+										ser.getGse(), App.getArchetypeString(gp
+												.getMapSeries().get(ser)));
+								List<String> dadls = new ArrayList<String>();
+								dadls.add(dadl);
+								client.insert(dadls);
+								dadls.clear();
+
+							}
+						}
+						
+						if(gp.getMapSample()!=null){
+							for (Sample sam : gp.getMapSample().keySet()) {
+								app.setMapFlie(new File(
+										"src/main/resources/gsm.xml"));
+								String dadl = generateDADL(app.getMapFlie(),
+										sam.getGsm(), App.getArchetypeString(gp
+												.getMapSample().get(sam)));
+								List<String> dadls = new ArrayList<String>();
+								dadls.add(dadl);
+								client.insert(dadls);
+								dadls.clear();
+							}
+						}				
+						file.renameTo(new File(newFile, file.getName()));
 					}
 				} else {
 					break;
@@ -129,32 +165,15 @@ public class App {
 		}
 	}
 
-	protected static String generateDADL(File mappingFile, File dataFile,
-			String archetypeString) throws Exception {
-		App app = new App();
-
-		if (mappingFile.getName().startsWith("gpl")) {
-			GplParse gpl = new GplParse();
-			gpl.parseFile(dataFile);
-			app.setDataMap(gpl.getM());
-		}
-		if (mappingFile.getName().startsWith("gse")) {
-			GseParse gse = new GseParse();
-			gse.parseFile(dataFile);
-			app.setDataMap(gse.getM());
-		}
-		if (mappingFile.getName().startsWith("gsm")) {
-			GsmParse gsm = new GsmParse();
-			gsm.parseFile(dataFile);
-			app.setDataMap(gsm.getM());
-		}
-		Map<String, String> m = app.getDataMap();
+	protected static String generateDADL(File mappingFile,
+			Map<String, String> dataFile, String archetypeString)
+			throws Exception {
 		Map<String, String> mp = parseXml(mappingFile);
 		Map<String, Object> hm = new HashMap<String, Object>();
-		for (String s : m.keySet()) {
+		for (String s : dataFile.keySet()) {
 			for (String t : mp.keySet()) {
 				if (s.equals(t)) {
-					hm.put(mp.get(t), m.get(s));
+					hm.put(mp.get(t), dataFile.get(s));
 					break;
 				}
 			}

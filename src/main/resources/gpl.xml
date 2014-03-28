@@ -1,143 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <properties>
 	<property>
-		<id>Platform_catalog_number</id>
+		<id>catalog_number</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0009]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_coating</id>
+		<id>coating</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0010]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_contact_address</id>
+		<id>contact_address</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0011]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_contact_city</id>
+		<id>contact_city</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0012]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_contact_country</id>
+		<id>contact_country</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0013]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_contact_department</id>
+		<id>contact_department</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0014]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_contact_email</id>
+		<id>contact_email</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0015]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_contact_fax</id>
+		<id>contact_fax</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0016]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_contact_institute</id>
+		<id>contact_institute</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0017]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_contact_laboratory</id>
+		<id>contact_laboratory</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0018]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_contact_name</id>
+		<id>contact_name</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0019]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_contact_phone</id>
+		<id>contact_phone</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0020]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_contact_state</id>
+		<id>contact_state</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0021]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_contact_zip/postal_code</id>
+		<id>contact_zip_or_postal_code</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0022]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_contributor</id>
+		<id>contributor</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0024]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_data_row_count</id>
+		<id>data_row_count</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0025]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_description</id>
+		<id>description</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0026]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_distribution</id>
+		<id>distribution</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0027]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_geo_accession</id>
+		<id>geo_accession</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0028]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_last_update_date</id>
+		<id>last_update_date</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0029]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_manufacture_protocol</id>
+		<id>manufacture_protocol</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0030]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_manufacturer</id>
+		<id>manufacturer</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0031]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_organism</id>
+		<id>organism</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0032]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_pubmed_id</id>
+		<id>pubmed_id</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0033]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_sample_id</id>
+		<id>sample_id</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0034]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_series_id</id>
+		<id>series_id</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0035]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_status</id>
+		<id>status</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0036]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_submission_date</id>
+		<id>submission_date</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0037]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_supplementary_file</id>
+		<id>supplementary_file</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0038]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_support</id>
+		<id>support</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0039]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_table</id>
+		<id>table</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0040]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_taxid</id>
+		<id>taxid</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0042]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_technology</id>
+		<id>technology</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0043]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_title</id>
+		<id>title</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0044]/value/value</value>
 	</property>
 	<property>
-		<id>Platform_web_link</id>
+		<id>web_link</id>
 		<value>/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0045]/value/value</value>
 	</property>
 </properties>
